@@ -8,7 +8,7 @@ const Services = ({ service }) => {
         <img src={img} className="card-img-top rounded-3" alt="..." />
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
-          <h6>{price}</h6>
+          <h6>Per Day:${price}</h6>
           <p className="card-text">{description}</p>
           <button className="btn btn-info d-block mx-auto w-50">Details</button>
         </div>

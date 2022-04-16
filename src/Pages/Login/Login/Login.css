@@ -1,0 +1,7 @@
+.login{
+-webkit-border-radius: 22px;
+border-radius: 22px;
+background: #D1D8EC;
+-webkit-box-shadow: 12px 12px 24px #b2b8c9, -12px -12px 24px #f0f8ff;
+box-shadow: 12px 12px 24px #b2b8c9, -12px -12px 24px #f0f8ff;
+}
