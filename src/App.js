@@ -7,6 +7,7 @@ import NotFound from "./Pages/Share/NotFound/NotFound";
 import Login from "./Pages/Login/Login/Login";
 import SingUp from "./Pages/Login/SingUp/SingUp";
 import About from "./Pages/Login/About/About";
+import Footer from './Pages/Share/Footer/Footer'
 function App() {
   return (
     <div>
@@ -18,6 +19,7 @@ function App() {
         <Route path="/singUp" element={<SingUp></SingUp>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
