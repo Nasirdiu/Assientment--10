@@ -16,7 +16,11 @@ const About = () => {
             3. Because my B.Sc. will end in May. My dream is to do a job or
             internship on font end. <br />
             4. I need more skills...
+            <h1 className="text-center text-info">Thank You Programming Hero Team</h1>
+            <hr />
+            
           </p>
+
         </div>
         <div>
           <img className="img-fluid rounded-circle" src={nasir} alt="" />
