@@ -1,14 +1,12 @@
-
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
 const CheekOut = () => {
-const handleFrom =e=>{
-  e.preventDefault()
-}
+  const handleFrom = (e) => {
+    e.preventDefault();
+  };
   return (
     <div className="container w-50  login mt-3">
+      <h1 className="text-center text-info">Cheek Out Page</h1>
       <div className="w-50 d-d-block mx-auto p-2">
         <Form onSubmit={handleFrom}>
           <Form.Group className="mb-3" controlId="name">
@@ -17,18 +15,12 @@ const handleFrom =e=>{
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control
-             
-              type="email"
-              name="email"
-              placeholder="Enter email"
-            />
+            <Form.Control type="email" name="email" placeholder="Enter email" />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="address">
             <Form.Label>Address</Form.Label>
             <Form.Control
-              
               type="address"
               name="address"
               placeholder="Your address"
@@ -36,12 +28,7 @@ const handleFrom =e=>{
           </Form.Group>
           <Form.Group className="mb-3" controlId="Number">
             <Form.Label>Number</Form.Label>
-            <Form.Control
-              
-              type="number"
-              name="number"
-              placeholder="Number"
-            />
+            <Form.Control type="number" name="number" placeholder="Number" />
           </Form.Group>
 
           <Button
@@ -51,7 +38,6 @@ const handleFrom =e=>{
           >
             Submit
           </Button>
-
         </Form>
       </div>
     </div>

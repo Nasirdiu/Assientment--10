@@ -3,7 +3,7 @@ import React from "react";
 const Blog = () => {
   return (
     <div className="container">
-      <div className="text-center w-75 bg-light mt-4 p-3">
+      <div className="text-center w-75 bg-info mt-4 p-3">
         <h4>Difference between authorization and authentication?</h4>
         <p>
           Ans: the process of verifying and confirming employees ID and
@@ -11,7 +11,7 @@ const Blog = () => {
           which employee has access to which floor is called authorization
         </p>
       </div>
-      <div className="text-center w-75 bg-light mt-4 p-3">
+      <div className="text-center w-75 bg-info mt-4 p-3">
         <h4>
           Why are you using firebase? What other options do you have to
           implement authentication??
@@ -26,7 +26,7 @@ const Blog = () => {
           scans, voice recognition, and fingerprints.
         </p>
       </div>
-      <div className="text-center w-75 bg-light mt-4 p-3">
+      <div className="text-center w-75 bg-info mt-4 p-3">
         <h4>
           What other services does firebase provide other than authentication?
         </h4>
