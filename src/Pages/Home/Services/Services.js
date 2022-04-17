@@ -19,7 +19,7 @@ const Services = ({ service }) => {
             onClick={() => handelenavagite(id)}
             className="btn btn-info d-block mx-auto w-50"
           >
-            Details
+            Booking Now
           </button>
         </div>
       </div>
