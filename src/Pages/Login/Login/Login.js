@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
   useSendPasswordResetEmail,
@@ -21,9 +21,11 @@ const Login = () => {
   const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
   const navigate = useNavigate();
 
-  if (user) {
-    navigate("/");
-  }
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, []);
   let errorhandle;
   if (error) {
     errorhandle = <p className="text-danger">Error: {error?.message}</p>;
@@ -95,7 +97,7 @@ const Login = () => {
             className="mb-3 w-50 mx-auto d-block"
             variant="primary"
             type="submit"
-            onClick={()=>signInWithGoogle()}
+            onClick={() => signInWithGoogle()}
           >
             Google SingIn
           </Button>
