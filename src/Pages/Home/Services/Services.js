@@ -5,7 +5,7 @@ const Services = ({ service }) => {
   const { id, name, img, price, description } = service;
   const navigate = useNavigate();
   const handelenavagite = (id) => {
-    navigate(`/service/${id}`);
+    navigate(`/cheekOut/${id}`);
   };
   return (
     <div className="g-5 col-sm-12 col-md-6 col-lg-4">
