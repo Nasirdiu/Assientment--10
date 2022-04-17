@@ -20,7 +20,7 @@ const SingUp = () => {
     if (user) {
       navigate("/");
     }
-  }, []);
+  }, [user]);
   let errorhandle;
   if (error) {
     errorhandle = <p className="text-danger">Error: {error?.message}</p>;
