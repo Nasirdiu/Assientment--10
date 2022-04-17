@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
@@ -17,10 +18,15 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending, error1] =
     useSendPasswordResetEmail(auth);
+  const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
   const navigate = useNavigate();
 
   if (user) {
     navigate("/");
+  }
+  let errorhandle;
+  if (error) {
+    errorhandle = <p className="text-danger">Error: {error?.message}</p>;
   }
   const handleEmaile = (e) => {
     setEmail(e.target.value);
@@ -34,12 +40,12 @@ const Login = () => {
   };
 
   const resetPassword = async () => {
-  if(email){
-    await sendPasswordResetEmail(email);
-    toast('Send Mail')
-  }else{
-    toast("Enter Your Mail Address");
-  }
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast("Send Mail");
+    } else {
+      toast("Enter Your Mail Address");
+    }
   };
   return (
     <div className="container w-50  login mt-3">
@@ -77,6 +83,7 @@ const Login = () => {
               Forget Password
             </Link>
           </p>
+          {errorhandle}
           <Button
             className="mb-3 w-50 mx-auto d-block"
             variant="primary"
@@ -88,6 +95,7 @@ const Login = () => {
             className="mb-3 w-50 mx-auto d-block"
             variant="primary"
             type="submit"
+            onClick={()=>signInWithGoogle()}
           >
             Google SingIn
           </Button>
