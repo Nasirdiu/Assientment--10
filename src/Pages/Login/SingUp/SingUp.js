@@ -1,19 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 const SingUp = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmpassword] = useState("");
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
+  const navigate = useNavigate();
+  if (user) {
+    navigate("/");
+  }
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+  const handleConfirmPassword = (e) => {
+    setConfirmpassword(e.target.value);
+  };
   const handleFrom = (e) => {
     e.preventDefault();
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    const confirmpassword = e.target.confirmpassword.value;
-
     createUserWithEmailAndPassword(email, password, confirmpassword);
   };
   return (
@@ -26,12 +37,18 @@ const SingUp = () => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" name="email" placeholder="Enter email" />
+            <Form.Control
+              onBlur={handleEmail}
+              type="email"
+              name="email"
+              placeholder="Enter email"
+            />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
+              onBlur={handlePassword}
               type="password"
               name="password"
               placeholder="Password"
@@ -40,6 +57,7 @@ const SingUp = () => {
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Confirm Password</Form.Label>
             <Form.Control
+              onBlur={handleConfirmPassword}
               type="password"
               name="confirmpassword"
               placeholder="Confirm Password"
