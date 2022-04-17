@@ -10,6 +10,7 @@ import auth from "../../../firebase.init";
 import "./Login.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import google from "../../../images/icon/google.jpg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -61,7 +62,6 @@ const Login = () => {
               name="email"
               placeholder="Enter email"
             />
-            
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -91,12 +91,18 @@ const Login = () => {
           >
             Login
           </Button>
+          <div className="d-flex align-items-center">
+            <div style={{ height: "1px" }} className="bg-primary w-50"></div>
+            <p className="m-2 px-2">Or</p>
+            <div style={{ height: "1px" }} className="bg-primary w-50"></div>
+          </div>
           <Button
             className="mb-3 w-50 mx-auto d-block"
             variant="primary"
             type="submit"
             onClick={() => signInWithGoogle()}
           >
+            <img style={{ width: "24px" }} src={google} alt="" />
             Google SingIn
           </Button>
 

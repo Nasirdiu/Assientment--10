@@ -6,6 +6,10 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
+import google from "../../../images/icon/google.jpg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const SingUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,11 +20,11 @@ const SingUp = () => {
   const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
 
   const navigate = useNavigate();
-  useEffect(() => {
+  /* useEffect(() => {
     if (user) {
       navigate("/");
     }
-  }, [user]);
+  }, [user]); */
   let errorhandle;
   if (error) {
     errorhandle = <p className="text-danger">Error: {error?.message}</p>;
@@ -34,9 +38,15 @@ const SingUp = () => {
   const handleConfirmPassword = (e) => {
     setConfirmpassword(e.target.value);
   };
-  const handleFrom = (e) => {
+  const handleFrom =async (e) => {
     e.preventDefault();
-    createUserWithEmailAndPassword(email, password, confirmpassword);
+    if(email ||password ||confirmpassword ){
+      await   createUserWithEmailAndPassword(email, password, confirmpassword);
+      toast("Submit Success");
+    }else {
+      toast("Not Submit");
+    }
+    
   };
   return (
     <div className="container w-50  login mt-3">
@@ -83,12 +93,18 @@ const SingUp = () => {
           >
             Sing Up
           </Button>
+          <div className="d-flex align-items-center">
+            <div style={{ height: "1px" }} className="bg-primary w-50"></div>
+            <p className="m-2 px-2">Or</p>
+            <div style={{ height: "1px" }} className="bg-primary w-50"></div>
+          </div>
           <Button
             className="mb-3 w-50 mx-auto d-block"
             variant="primary"
             type="submit"
             onClick={() => signInWithGoogle()}
           >
+            <img style={{ width: "24px" }} src={google} alt="" />
             Google SingIn
           </Button>
 
@@ -103,6 +119,7 @@ const SingUp = () => {
           </p>
         </Form>
       </div>
+      <ToastContainer />
     </div>
   );
 };
