@@ -8,7 +8,12 @@ const Services = ({ service }) => {
     navigate(`/cheekOut/${id}`);
   };
   return (
-    <div className="g-5 col-sm-12 col-md-6 col-lg-4">
+    <div
+      data-aos="zoom-in-up"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+      className="g-5 col-sm-12 col-md-6 col-lg-4"
+    >
       <div className="card text-center" style={{ width: "18rem" }}>
         <img src={img} className="card-img-top rounded-3" alt="..." />
         <div className="card-body">

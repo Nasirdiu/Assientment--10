@@ -11,7 +11,13 @@ import Footer from "./Pages/Share/Footer/Footer";
 import Blog from "./Pages/Home/Home/Blog/Blog";
 import CheekOut from "./Pages/CheekOut/CheekOut";
 import RequireAuth from "./Pages/Login/RequireAuth/RequireAuth";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 function App() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div>
       <Header></Header>
