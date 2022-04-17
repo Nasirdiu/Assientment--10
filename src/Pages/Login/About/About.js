@@ -2,15 +2,20 @@ import React from "react";
 import nasir from "../../../images/nasir.jpg";
 const About = () => {
   return (
-    <div className="container mt-3"> 
-        <h1 className="text-center text-info">About My Self</h1>
+    <div className="container mt-3">
+      <h1 className="text-center text-info">About My Self</h1>
+      <hr />
       <div className=" d-flex mt-5">
         <div>
           <p className="m-5 p-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae vel
-            blanditiis aliquid quas eum vitae iste, non minus quisquam ipsam,
-            voluptatum ullam alias omnis odit, velit fugiat dolorum consectetur
-            corporis.
+             
+            <h1 className="text-center text-info">Md.Nasir Uddin</h1>
+            <hr />
+            1. An internship paid / non-paid on React. <br />
+            2. Or I have to do a job. <br />
+            3. Because my B.Sc. will end in May. My dream is to do a job or
+            internship on font end. <br />
+            4. I need more skills...
           </p>
         </div>
         <div>
