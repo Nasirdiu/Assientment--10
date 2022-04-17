@@ -20,4 +20,5 @@ Live sit Link :- [https://assignment-project-a39e6.firebaseapp.com/](https://ass
     <li>Firebase</li>
     <li>React Firebase Hooks</li>
     <li>React Bootstrap</li>
+    <li>React Toastify</li>
 </ul>

@@ -8,7 +8,7 @@ const SingUp = () => {
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth,{ sendEmailVerification: true });
 
   const navigate = useNavigate();
   if (user) {

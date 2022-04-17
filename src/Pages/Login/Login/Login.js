@@ -1,14 +1,22 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import "./Login.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending, error1] =
+    useSendPasswordResetEmail(auth);
   const navigate = useNavigate();
 
   if (user) {
@@ -23,6 +31,15 @@ const Login = () => {
   const handleFrom = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(email, password);
+  };
+
+  const resetPassword = async () => {
+  if(email){
+    await sendPasswordResetEmail(email);
+    toast('Send Mail')
+  }else{
+    toast("Enter Your Mail Address");
+  }
   };
   return (
     <div className="container w-50  login mt-3">
@@ -52,7 +69,11 @@ const Login = () => {
           </Form.Group>
           <p>
             Loss Password And Forget?
-            <Link className="from-link text-decoration-none text-danger" to="">
+            <Link
+              onClick={resetPassword}
+              className="from-link text-decoration-none text-danger"
+              to=""
+            >
               Forget Password
             </Link>
           </p>
@@ -82,6 +103,7 @@ const Login = () => {
           </p>
         </Form>
       </div>
+      <ToastContainer />
     </div>
   );
 };
