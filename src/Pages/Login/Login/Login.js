@@ -61,6 +61,7 @@ const Login = () => {
               type="email"
               name="email"
               placeholder="Enter email"
+              required
             />
           </Form.Group>
 
@@ -71,6 +72,7 @@ const Login = () => {
               type="password"
               name="password"
               placeholder="Password"
+              required
             />
           </Form.Group>
           <p>

@@ -54,7 +54,7 @@ const SingUp = () => {
         <Form onSubmit={handleFrom}>
           <Form.Group className="mb-3" controlId="name">
             <Form.Label>Name</Form.Label>
-            <Form.Control type="text" name="name" placeholder="Enter Name" />
+            <Form.Control type="text" name="name" placeholder="Enter Name" required />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -63,6 +63,7 @@ const SingUp = () => {
               type="email"
               name="email"
               placeholder="Enter email"
+              required
             />
           </Form.Group>
 
@@ -73,6 +74,7 @@ const SingUp = () => {
               type="password"
               name="password"
               placeholder="Password"
+              required
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -82,6 +84,7 @@ const SingUp = () => {
               type="password"
               name="confirmpassword"
               placeholder="Confirm Password"
+              required
             />
           </Form.Group>
 
